@@ -26,6 +26,24 @@ body {
     text-align: center;
 }
 
+@media screen and (max-width: 768px) {
+    .card {
+        width: 95%;       /* Smaller width for smaller devices */
+        padding: 35px 20px;  /* Smaller padding */
+        margin: 32px auto;   /* Adjust margin */
+        border-radius: 15px; /* Smaller border radius */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card {
+        width: 100%;       /* Full width on very small screens */
+        padding: 20px 15px;  /* Smaller padding for better fit */
+        border-radius: 10px; /* Smaller border radius */
+        margin: 15px auto;
+    }
+}
+
 .search {
     width: 100%;
     display: flex;
