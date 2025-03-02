@@ -26,23 +26,30 @@ body {
     text-align: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 400px) and (max-width: 700px) {
     .card {
-        width: 95%;       /* Smaller width for smaller devices */
-        padding: 35px 20px;  /* Smaller padding */
-        margin: 32px auto;   /* Adjust margin */
-        border-radius: 15px; /* Smaller border radius */
+        margin: 65px 0px 0px 13px;
+        width: 93.2%;
+    }
+
+    .details {
+        margin: 0px -40px 5px -40px;
+    }
+    .search button {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        padding: 20px;
+        margin: -8px;
+    }
+    .search .search-btn {
+        width: 15px;
+    }
+    .search input {
+        margin-left: -20px;
     }
 }
 
-@media screen and (max-width: 480px) {
-    .card {
-        width: 100%;       /* Full width on very small screens */
-        padding: 20px 15px;  /* Smaller padding for better fit */
-        border-radius: 10px; /* Smaller border radius */
-        margin: 15px auto;
-    }
-}
 
 .search {
     width: 100%;
