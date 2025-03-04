@@ -18,13 +18,20 @@ body {
     color: #fff;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    background-image: url(weatherImages/clody-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: bottom;
     /* background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); */
-    background: linear-gradient(135deg, #cc0000 0%, #990000 50%, #cc0000 100%);
+    /* background: linear-gradient(135deg, #cc0000 0%, #990000 50%, #cc0000 100%); */
     margin: 50px auto 0;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
 }
+
+
+
 
 @media screen and (min-width: 400px) and (max-width: 700px) {
     .card {
@@ -76,6 +83,9 @@ input::placeholder {
     font-size: 16px;
     color: #1a1717;
 }
+
+
+
 
 .search button {
     border-radius: 50%;
