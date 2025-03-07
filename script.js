@@ -21,7 +21,7 @@ async function checkWhether(city) {
     }
 
     document.getElementById("loader").style.display = "flex";
-
+    
     try {
         const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
         const data = await response.json();
