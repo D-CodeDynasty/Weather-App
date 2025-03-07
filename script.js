@@ -5,13 +5,18 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 const card = document.getElementById("js-card");
-
+let cityName = document.getElementById('msg');
+let weather = document.getElementById('js-weather');
 
 async function checkWhether(city) {
     if (!city) {
         setTimeout(() => {
-            alert("Please enter your city name");
+            cityName.classList.add("hide");
+            cityName.style.display = "none";
         }, 1000);
+        setTimeout(() => {
+            cityName.classList.remove("hide");
+        },12000);
         return;
     }
     try {
@@ -37,7 +42,7 @@ async function checkWhether(city) {
         else if (data.weather[0].main == "Drizzle") {
             weatherIcon.src = "weatherImages/drizzle.png";
         }
-        else if (data.weather[0].main == "Mist") {
+        else if (data.weather[0].description.includes("mist")) {
             weatherIcon.src = "weatherImages/mist.png";
         }
         const weatherType = data.weather[0].main;
@@ -71,8 +76,18 @@ async function checkWhether(city) {
     } catch (error) {
         console.log("Error:", error.message);
         setTimeout(() => {
-            alert("Invalid City Name or Network Error");
-        }, 1000)
+            cityName.innerHTML = "Invalid City Name or Network Error";
+            weather.style.display = "none";
+            cityName.style.color = "#fff";
+            cityName.style.display = "block";
+        }, 1000);
+
+        setTimeout(() => {
+            cityName.classList.add("hidden");
+        }, 1000);
+        setTimeout(() => {
+            cityName.classList.remove("hidden")
+        }, 7000);
     }
 
 
@@ -84,7 +99,9 @@ checkWhether();
 
 searchBtn.addEventListener("click", () => {
     checkWhether(searchBox.value);
-    searchBox.style.backgroundColor = "rgba(255, 223, 186, 0.3)";
+    cityName.style.display = "none";
+    cityName.style.margin = "0px";
+    searchBox.style.backgroundColor = "rgba(3, 3, 3, 0.3)";
 });
 
 searchBox.addEventListener("keydown", (event) => {
