@@ -16,9 +16,12 @@ async function checkWhether(city) {
         }, 1000);
         setTimeout(() => {
             cityName.classList.remove("hide");
-        },12000);
+        }, 12000);
         return;
     }
+
+    document.getElementById("loader").style.display = "flex";
+
     try {
         const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
         const data = await response.json();
@@ -88,6 +91,10 @@ async function checkWhether(city) {
         setTimeout(() => {
             cityName.classList.remove("hidden")
         }, 7000);
+    } finally {
+        setTimeout(() => {
+            document.getElementById("loader").style.display = "none";
+        }, 1000);
     }
 
 
@@ -107,9 +114,10 @@ searchBtn.addEventListener("click", () => {
 searchBox.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         searchBtn.click();
-        searchBtn.style.backgroundColor = "rgba(255, 223, 186, 0.4)";
+        searchBtn.style.backgroundColor = "rgba(11, 12, 9, 0.86)";
     }
 });
+
 
 
 
